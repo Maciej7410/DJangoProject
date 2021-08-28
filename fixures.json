@@ -1,0 +1,13 @@
+[ {"model": "viewer.genre",  "pk": 1, "fields": {"name": "Horror"}},
+  {"model": "viewer.genre", "pk": 3, "fields": {"name": "Thriller"}},
+  {"model": "viewer.genre", "pk": 4, "fields": {"name": "Comedy"}},
+  {"model": "viewer.genre", "pk": 5, "fields": {"name": "Drama"}},
+  {"model": "viewer.genre", "pk": 6, "fields": {"name": "Przegladarkowy"}},
+  {"model": "viewer.movie", "pk": 1, "fields": {"title": "Free Guy", "genre": 4, "rating": 7, "released": "2021-08-13", "description": "Film o wolnych", "created": "2021-08-22T12:35:52.679Z"}},
+  {"model": "viewer.movie", "pk": 2, "fields": {"title": "Psy", "genre": 5, "rating": 10, "released": "2010-08-13", "description": "Film o by\u0142ych kkomunistach", "created": "2021-08-22T12:38:24.869Z"}},
+  {"model": "viewer.movie", "pk": 3, "fields": {"title": "No time to die", "genre": 5, "rating": 8, "released": "2021-10-01", "description": "Test123", "created": "2021-08-22T12:42:20.762Z"}},
+  {"model": "viewer.movie", "pk": 4, "fields": {"title": "Green Mila", "genre": 5, "rating": 10, "released": "2015-08-13", "description": "O wi\u0119\u017aniu", "created": "2021-08-22T12:45:07.306Z"}},
+  {"model": "viewer.movie", "pk": 5, "fields": {"title": "Dirty Dancing", "genre": 5, "rating": 6, "released": "2000-09-11", "description": "Film o ta\u0144cu", "created": "2021-08-22T12:35:52.679Z"}},
+  {"model": "viewer.movie", "pk": 6, "fields": {"title": "The green mile", "genre": 5, "rating": 9, "released": "1999-12-06", "description": "Drama", "created": "2021-08-22T12:59:20.129Z"}},
+  {"model": "viewer.movie", "pk": 7, "fields": {"title": "No time to die", "genre": 3, "rating": 8, "released": "2021-10-01", "description": "Test123", "created": "2021-08-22T13:01:53.688Z"}},
+  {"model": "viewer.movie", "pk": 8, "fields": {"title": "Przemin\u0119\u0142o z wiatrem", "genre": 3, "rating": 4, "released": "2021-08-22", "description": "Jest to pi\u0119kne ale i prawdziwie wpis z przegl\u0105darki", "created": "2021-08-22T13:38:21.518Z"}}]
