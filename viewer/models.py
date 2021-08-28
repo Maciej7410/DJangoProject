@@ -11,6 +11,7 @@ class Genre(Model): # Model dziedziczy po Base,
 
 
 class Movie(Model):
+    objects = None
     title = CharField(max_length=128)
     genre = ForeignKey(Genre, on_delete=DO_NOTHING) # kiedy usuwamy film zostawiamy gatunek
     rating = IntegerField()
