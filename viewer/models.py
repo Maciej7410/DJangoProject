@@ -7,6 +7,7 @@ from django.db.models import (Model, CharField, DateField, DateTimeField, # char
 # Create your models here.
 
 class Genre(Model): # Model dziedziczy po Base,
+    objects = None
     name = CharField(max_length=128)
 
 
