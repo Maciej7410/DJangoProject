@@ -23,5 +23,5 @@ admin.site.register(Movie)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.movies)
+    path('', views.movies, name='index')
 ]
