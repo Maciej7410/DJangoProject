@@ -7,6 +7,14 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
+
+        {{form.title.errors }}
+        <div class="form-group">
+            {{ from.title.errors }}
+            <label for="{{ form.title.id_for_label }}"></label>
+                {{ form.title }}
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
         <table>
             {{ form }}
         </table>
