@@ -19,14 +19,25 @@ from viewer.views import MoviesView, MovieCreateView, MovieUpdateView, MovieDele
 from viewer.models import Genre, Movie
 from viewer.views import generate_demo
 
-from account.views import SubmittableLoginView
-from django.contrib.auth.views import LoginView
+from account.views import SubmittableLoginView, SubmittablePasswordChangeForm
+from django.contrib.auth import views
 
 admin.site.register(Genre)
 admin.site.register(Movie)
 
 urlpatterns = [
     path('accounts/login/', SubmittableLoginView.as_view(), name='login'),
+    path('logout', views.LogoutView.as_view(), name='logout'),
+
+    path('password_change', SubmittablePasswordChangeForm.as_view(), name='password_change'),
+    path('password_change/done/', views.PasswordChangeDoneView.as_view(), name='password_change_done'),
+
+    path('password_reset/', views.PasswordResetView.as_view(), name='password_reset'),
+    path('password_reset/done/', views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+
+    path('reset/<uidb64>/<token>', views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset/done', views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+
     path('admin/', admin.site.urls),
     path('demo', generate_demo, name='demo'),
     path('', MoviesView.as_view(), name='index'),
