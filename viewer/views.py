@@ -15,11 +15,7 @@ import datetime
 
 LOGGER = getLogger()
 
-from django.contrib.auth.views import LoginView
 
-
-class SubmittableLoginView(LoginView):
-    template_name = 'form.html'
 
 
 @login_required
