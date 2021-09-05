@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from django.views.generic import ListView, FormView, CreateView, UpdateView, DeleteView
@@ -9,13 +10,28 @@ from viewer.models import Movie
 from viewer.forms import MovieForm
 
 from logging import getLogger
+import datetime
 
 LOGGER = getLogger()
+
+
+@login_required
+def generate_demo(request):
+    our_get = request.GET.get('name', '')
+    return render(
+        request, template_name='demo.html',
+        context={'our_get': our_get,
+                 'list': ['pierwszy', 'drugi', 'trzeci', 'czwarty'],
+                 'nasza_data': datetime.datetime.now()
+                 }
+
+    )
 
 
 class MoviesView(ListView):
     template_name = 'movies.html'
     model = Movie
+
 
 
 class MovieCreateView(CreateView):
