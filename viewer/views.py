@@ -14,6 +14,8 @@ import datetime
 
 LOGGER = getLogger()
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 @login_required
 def generate_demo(request):
@@ -28,13 +30,14 @@ def generate_demo(request):
     )
 
 
-class MoviesView(ListView):
+class MoviesView(LoginRequiredMixin, ListView):
     template_name = 'movies.html'
     model = Movie
 
 
 
-class MovieCreateView(CreateView):
+
+class MovieCreateView(LoginRequiredMixin,CreateView):
     template_name = 'form.html'
     form_class = MovieForm
     # adres pobrany z URL-s na który zostaniemy przekierowani gdy walidacja się powiedzie
@@ -51,7 +54,7 @@ class MovieCreateView(CreateView):
         return super().form_invalid(form)
 
 
-class MovieUpdateView(UpdateView):
+class MovieUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'form.html'
     form_class = MovieForm
     # adres pobrany z URL-s na który zostaniemy przekierowani gdy aktualizacja się powiedzie
@@ -67,7 +70,7 @@ class MovieUpdateView(UpdateView):
         return super().form_invalid(form)
 
 
-class MovieDeleteView(DeleteView):
+class MovieDeleteView(LoginRequiredMixin, DeleteView):
     # nazwa szablonu wraz z rozszerzeniem którą pobieramy z folderu templates
     template_name = 'delete_movie.html'
     # nazwa encji z której będziemy kasować rekord
