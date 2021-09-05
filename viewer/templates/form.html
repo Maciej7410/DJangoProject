@@ -1,46 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}
-    Dodaj film
-{% endblock%}
+{% block title%}
+    <h1>Nowy formularz</h1>
+{% endblock %}
 
-{% block content %}
+
+{% block content%}
+
     <form method="post">
         {% csrf_token %}
-
-        {{form.title.errors }}
-        <div class="form-group">
-            {{ from.title.errors }}
-            <label for="{{ form.title.id_for_label }}"></label>
-                {{ form.title }}<!-- wygenerowanie pola imput-->
-
-        </div>
-
-        <div class = "form-row">
-<!--            genre-->
-            <div class ="form-group col-md-4">
-                {{ form.genre.errors }}
-                <label for="{{ form.genre.id_for_label }}"> Gatunek </label>
-                {{ form.genre }}
-            </div>
-<!--            rating-->
-            <div class ="form-group col-md-4">
-                {{ form.rating.errors }}
-                <label for="{{ form.rating.id_for_label }}"> Rating </label>
-                {{ form.fating }}
-            </div>
-<!--            relased-->
-            <div class ="form-group col-md-4">
-                {{ form.relased.errors }}
-                <label for="{{ form.relased.id_for_label }}"> Relased </label>
-                {{ form.relased }}
-            </div>
-        </div>
-
-
-<!--        <table>-->
-<!--            {{ form }}-->
-<!--        </table>-->
-        <input type="submit" value="Wyślij" class="btn btn-primary">
+        {{ form.as_p }}
+        <input type="submit" value="Zapisz"
+               class="btn btn-primary">
     </form>
+
 {% endblock %}

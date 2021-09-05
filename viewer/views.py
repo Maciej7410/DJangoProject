@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 
 from django.views.generic import ListView, FormView, CreateView, UpdateView, DeleteView
@@ -14,7 +15,11 @@ import datetime
 
 LOGGER = getLogger()
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView
+
+
+class SubmittableLoginView(LoginView):
+    template_name = 'form.html'
 
 
 @login_required
@@ -35,10 +40,8 @@ class MoviesView(LoginRequiredMixin, ListView):
     model = Movie
 
 
-
-
-class MovieCreateView(LoginRequiredMixin,CreateView):
-    template_name = 'form.html'
+class MovieCreateView(LoginRequiredMixin, CreateView):
+    template_name = 'AddEditMovie.html'
     form_class = MovieForm
     # adres pobrany z URL-s na który zostaniemy przekierowani gdy walidacja się powiedzie
     # (movie_create pochodzi z name!) reverse_lazy pochodzi z djago.urls
@@ -55,7 +58,7 @@ class MovieCreateView(LoginRequiredMixin,CreateView):
 
 
 class MovieUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = 'form.html'
+    template_name = 'AddEditMovie.html'
     form_class = MovieForm
     # adres pobrany z URL-s na który zostaniemy przekierowani gdy aktualizacja się powiedzie
     # (movie_create pochodzi z name!) reverse_lazy pochodzi z djago.urls
